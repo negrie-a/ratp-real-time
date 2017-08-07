@@ -1,0 +1,67 @@
+http://opendata-tr.ratp.fr/wsiv/services/Wsiv
+
+------------------
+
+#getLines
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsiv="http://wsiv.ratp.fr" xmlns:xsd="http://wsiv.ratp.fr/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wsiv:getLines>
+         <!--Optional:-->
+         <wsiv:line>
+            <xsd:id>RB</xsd:id>
+         </wsiv:line>
+      </wsiv:getLines>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+-----------------
+
+#getStations
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsiv="http://wsiv.ratp.fr" xmlns:xsd="http://wsiv.ratp.fr/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wsiv:getStations>
+         <!--Optional:-->
+         <wsiv:station>
+            <!--Optional:-->
+               <!--Optional:-->
+               <xsd:line>
+                  <xsd:id>RB</xsd:id>
+               </xsd:line>
+               <!--Optional:-->
+               <xsd:name>robinson</xsd:name>
+            <!--Optional:-->
+            </wsiv:station>
+         </wsiv:getStations>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+----------------
+
+#getMissionsNext
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsiv="http://wsiv.ratp.fr" xmlns:xsd="http://wsiv.ratp.fr/xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <wsiv:getMissionsNext>
+         <!--Optional:-->
+         <wsiv:station>
+
+            <xsd:id>10</xsd:id>
+            <xsd:line>
+               <xsd:id>RB</xsd:id>
+            </xsd:line>
+            <!--Optional:-->
+            <xsd:name></xsd:name>
+         </wsiv:station>
+         <!--Optional:-->
+         <wsiv:direction>
+         		<xsd:sens>A</xsd:sens>
+         </wsiv:direction>
+      </wsiv:getMissionsNext>
+   </soapenv:Body>
+</soapenv:Envelope>
