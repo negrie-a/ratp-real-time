@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, label {
     color: #FFFFFF;
 }
 
@@ -20,21 +20,10 @@ h1, h2, h3, h4, h5 {
     display: inline;
 }
 
-.main-title {
-    margin-bottom: 40px;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-title>h4 {
-    margin: 0px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
-
-.main-title>h1 {
-    margin: 0px;
+.icon-transport {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 40px;
 }
 
 .border-right {

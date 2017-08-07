@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app works!';
+  station = '';
+
+
+
+  constructor() {
+    this.getTimeByStationName("ROBINSON")
+  }
+
+  getTimeByStationName(name) {
+    console.log(name)
+    this.station = name
+  }
 }

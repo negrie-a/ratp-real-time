@@ -21,9 +21,12 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/autopulous-angular2-soap/vendor/autopulous-xdom/xdom.js",
+        "../node_modules/autopulous-angular2-soap/vendor/autopulous-xdom2jso/xdom2jso.js"
+      ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
@@ -36,7 +39,7 @@
   },
   "lint": [
     {
-      "files": "src/**/*.ts",
+      "files": "src/**/**/*.ts",
       "project": "src/tsconfig.json"
     },
     {
