@@ -8,9 +8,16 @@ export class RATPService {
 
   constructor(private httpService: Http) {}
 
-  getHighLighted(): Promise<any> {
-    return this.httpService.get(`${this.resourceUrl}/highlighted`)
+  getStationsInfo(name: string, id: string): Promise<any> {
+    return this.httpService.get(`http://localhost:3000/stations/${name}/type/${id}`)
       .toPromise()
-      .then(response => response.json() as any);
+      .then(response => response.json() as any)
+      .catch(this.handleError)
   }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+
 }

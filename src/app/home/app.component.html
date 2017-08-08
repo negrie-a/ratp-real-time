@@ -1,15 +1,19 @@
 <div class="mycontainer">
-    <section class="row">
-            <label class="col-xs-2 icon-transport">[RER B]</label>
-            <h1 class="col-xs-8 text-center">{{station}}</h1>
+    <section class="row container-title">
+            <label class="col-xs-3 icon-transport">[RER B]</label>
+            <h1 class="col-xs-6 text-center">{{title}}</h1>
+            <h2 class="col-xs-3" >{{time}}</h2>
     </section>
     <section class="row">
         <div class="col-xs-6 border-right">
-            <item-travel></item-travel>
-            <item-travel></item-travel>
+            <div *ngFor="let station of stations ; let i = index">
+                <item-travel [index]="i" [station]="station" *ngIf="station.direction.sens == 'R'"></item-travel>
+            </div>
         </div>
         <div class="col-xs-6">
-            <item-travel></item-travel>
+            <div *ngFor="let station of stations ; let i = index">
+                <item-travel [index]="i" [station]="station" *ngIf="station.direction.sens == 'A'"></item-travel>
+            </div>
         </div>
     </section>
 </div>

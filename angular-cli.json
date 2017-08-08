@@ -21,10 +21,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
       ],
-      "scripts": [
-        "../node_modules/autopulous-angular2-soap/vendor/autopulous-xdom/xdom.js",
-        "../node_modules/autopulous-angular2-soap/vendor/autopulous-xdom2jso/xdom2jso.js"
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

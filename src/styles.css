@@ -8,12 +8,11 @@ h1, h2, h3, h4, h5, label {
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #213A4A;
+    background-color: #5B4A74;
 }
 
-.absolute {
-    position: absolute;
+.container-title {
+    margin-bottom: 20px;
 }
 
 .inline {
@@ -23,7 +22,7 @@ h1, h2, h3, h4, h5, label {
 .icon-transport {
     margin-top: 20px;
     margin-bottom: 10px;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
 }
 
 .border-right {
@@ -31,17 +30,27 @@ h1, h2, h3, h4, h5, label {
 }
 
 .item {
-    background-color: #203242;
     display:flex;
     align-items: center;
     justify-content: center;
+    height: 45px;
 }
 
+.item-color1 {
+    background-color: #FFB740;
+}
+.item-color2 {
+    background-color: #FFCA73;
+}
+
+.end_page {
+    background-color: #FFCA73;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+}
 .destination {
-    text-align: center;
-    height: 30px;
-    margin: 0px;
-    padding: 0px;
+    text-align: left;
+
 }
 
 .time {
