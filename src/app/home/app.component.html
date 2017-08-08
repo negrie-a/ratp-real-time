@@ -5,14 +5,14 @@
             <h2 class="col-xs-3" >{{time}}</h2>
     </section>
     <section class="row">
-        <div class="col-xs-6 border-right">
-            <div *ngFor="let station of stations ; let i = index">
-                <item-travel [index]="i" [station]="station" *ngIf="station.direction.sens == 'R'"></item-travel>
+        <div class="col-xs-6 border-right container-flex">
+            <div class="item" [hidden]="station.direction.sens == 'R'" *ngFor="let station of stations ; let i = index" [ngClass]="(i % 2 == 0)?'item-color1':'item-color2'">
+                <item-travel [station]="station"></item-travel>
             </div>
         </div>
-        <div class="col-xs-6">
-            <div *ngFor="let station of stations ; let i = index">
-                <item-travel [index]="i" [station]="station" *ngIf="station.direction.sens == 'A'"></item-travel>
+        <div class="col-xs-6 container-flex">
+            <div class="item" [hidden]="station.direction.sens == 'A'" *ngFor="let station of stations ; let i = index" [ngClass]="(i % 2 == 0)?'item-color1':'item-color2'">
+                <item-travel [station]="station"></item-travel>
             </div>
         </div>
     </section>

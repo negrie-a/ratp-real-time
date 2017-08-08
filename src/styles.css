@@ -11,6 +11,15 @@ h1, h2, h3, h4, h5, label {
     background-color: #5B4A74;
 }
 
+.container-flex {
+  display: flex; /* or inline-flex */
+  padding: 0px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 82vh;
+}
+
 .container-title {
     margin-bottom: 20px;
 }
@@ -26,14 +35,12 @@ h1, h2, h3, h4, h5, label {
 }
 
 .border-right {
-    border-right: 1px solid #000000;
+    border-right: 1px solid #555555;
 }
 
 .item {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 45px;
+
+    flex-grow: 1;
 }
 
 .item-color1 {
@@ -43,11 +50,6 @@ h1, h2, h3, h4, h5, label {
     background-color: #FFCA73;
 }
 
-.end_page {
-    background-color: #FFCA73;
-    background-size: 100px 100px;
-    background-repeat: no-repeat;
-}
 .destination {
     text-align: left;
 

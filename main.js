@@ -10,48 +10,66 @@ const soap = require('soap');
 // })
 
 let win = null;
+//
+// require('dotenv').config();
+//
+// app.on('ready', function () {
+//
+//     // Initialize the window to our specified dimensions
+//     win = new BrowserWindow({width: 1000, height: 600});
+//
+//     // Specify entry point
+//     // Specify entry point
+//     if (process.env.PACKAGE === 'true'){
+//         win.loadURL(url.format({
+//             pathname: path.join(__dirname, 'dist/index.html'),
+//             protocol: 'file:',
+//             slashes: true
+//         }));
+//     } else {
+//         win.loadURL(process.env.HOST);
+//         win.webContents.openDevTools();
+//     }
+//
+//     // Show dev tools
+//     // Remove this line before distributing
+//     win.webContents.openDevTools()
+//
+//     // Remove window once app is closed
+//     win.on('closed', function () {
+//         win = null;
+//     });
+//
+// });
+//
+// app.on('activate', () => {
+//     if (win === null) {
+//         createWindow()
+//     }
+// })
+//
+// app.on('window-all-closed', function () {
+//     if (process.platform != 'darwin') {
+//         app.quit();
+//     }
+// });
+appServer.use(function (req, res, next) {
 
-require('dotenv').config();
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
-app.on('ready', function () {
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Initialize the window to our specified dimensions
-    win = new BrowserWindow({width: 1000, height: 600});
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Specify entry point
-    // Specify entry point
-    if (process.env.PACKAGE === 'true'){
-        win.loadURL(url.format({
-            pathname: path.join(__dirname, 'dist/index.html'),
-            protocol: 'file:',
-            slashes: true
-        }));
-    } else {
-        win.loadURL(process.env.HOST);
-        win.webContents.openDevTools();
-    }
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Show dev tools
-    // Remove this line before distributing
-    win.webContents.openDevTools()
-
-    // Remove window once app is closed
-    win.on('closed', function () {
-        win = null;
-    });
-
-});
-
-app.on('activate', () => {
-    if (win === null) {
-        createWindow()
-    }
-})
-
-app.on('window-all-closed', function () {
-    if (process.platform != 'darwin') {
-        app.quit();
-    }
+    // Pass to next layer of middleware
+    next();
 });
 
 appServer.get('/', function (req, res) {
