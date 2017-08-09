@@ -142,6 +142,37 @@ appServer.get('/stations/:name/type/:id', function (req, res) {
     });
 });
 
+
+appServer.get('/mission/:id/type/:type/notserved', function (req, res) {
+
+    var url = 'http://localhost:8888/wsiv.wsdl';
+    var args = {
+        "ns1:mission": {
+            "ns0:id": req.params.id,
+            "ns0:line": {
+                "ns0:id": req.params.type
+            }
+        },
+        "ns1:stationAll": 1
+    };
+
+    soap.createClient(url, function(err, client) {
+        if (err) {
+            console.log(err)
+        }
+        client.getMission(args, function(err, result) {
+            if (err) {
+                console.log(err)
+            }
+            var m = {
+                stations: result.return.mission.stations,
+                stationsStops: result.return.mission.stationsStops
+            }
+            res.status(200).json(m);
+        });
+    });
+});
+
 appServer.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });

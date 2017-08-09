@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, label {
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  height: 82vh;
+  height: calc(100vh - 89px);
 }
 
 .container-title {
@@ -39,26 +39,32 @@ h1, h2, h3, h4, h5, label {
 }
 
 .item {
-
     flex-grow: 1;
 }
 
 .item-color1 {
     background-color: #FFB740;
 }
+
 .item-color2 {
     background-color: #FFCA73;
 }
 
 .destination {
     text-align: left;
-
 }
 
 .time {
     text-align: right;
     margin: 0px;
     padding: 0px;
+    margin-top: 10px;
 
     padding-right: 30px;
+}
+
+.stationsNotServe {
+  color: #f45042;
+  text-align: center;
+  width: 100%;
 }
