@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://wsiv.ratp.fr" xmlns:ns1="http://wsiv.ratp.fr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns0="http://wsiv.ratp.fr/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
-<wsdl:documentation>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns0="http://wsiv.ratp.fr/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns1="http://wsiv.ratp.fr" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://wsiv.ratp.fr">
+    <wsdl:documentation>
 		RATP : Web Service Information Voyageur
 	</wsdl:documentation>
-  <wsdl:types>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr/xsd" xmlns:ax21="http://wsiv.ratp.fr/xsd">
+    <wsdl:types>
+        <xs:schema xmlns:ax21="http://wsiv.ratp.fr/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr/xsd">
     <xs:complexType name="GeoPoint">
         <xs:sequence>
             <xs:element minOccurs="0" name="id" nillable="true" type="xs:string"/>
@@ -223,15 +223,6 @@
             <xs:element maxOccurs="unbounded" minOccurs="0" name="perturbations" nillable="true" type="ax21:Perturbation"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="WrStationAreas">
-        <xs:sequence>
-            <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="ambiguousGeoPoints" nillable="true" type="ax21:GeoPoint"/>
-            <xs:element minOccurs="0" name="argumentGeoPoint" nillable="true" type="ax21:GeoPoint"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="distances" nillable="true" type="xs:int"/>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="stationAreas" nillable="true" type="ax21:StationArea"/>
-        </xs:sequence>
-    </xs:complexType>
     <xs:complexType name="WrStations">
         <xs:sequence>
             <xs:element minOccurs="0" name="ambiguityMessage" nillable="true" type="xs:string"/>
@@ -245,7 +236,7 @@
         </xs:sequence>
     </xs:complexType>
 </xs:schema>
-    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr" xmlns:ns="http://wsiv.ratp.fr">
+        <xs:schema xmlns:ns="http://wsiv.ratp.fr" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://wsiv.ratp.fr">
     <xs:element name="getGeoPoints">
         <xs:complexType>
             <xs:sequence>
@@ -399,435 +390,395 @@
         </xs:complexType>
     </xs:element>
 </xs:schema>
-  </wsdl:types>
-  <wsdl:message name="getLinesResponse">
-    <wsdl:part name="parameters" element="ns1:getLinesResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsFirstLastResponse">
-    <wsdl:part name="parameters" element="ns1:getMissionsFirstLastResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getVersionResponse">
-    <wsdl:part name="parameters" element="ns1:getVersionResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getStationsResponse">
-    <wsdl:part name="parameters" element="ns1:getStationsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getVersionRequest">
-  </wsdl:message>
-  <wsdl:message name="getStationsRequest">
-    <wsdl:part name="parameters" element="ns1:getStations">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsFrequencyResponse">
-    <wsdl:part name="parameters" element="ns1:getMissionsFrequencyResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsNextRequest">
-    <wsdl:part name="parameters" element="ns1:getMissionsNext">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getPerturbationsResponse">
-    <wsdl:part name="parameters" element="ns1:getPerturbationsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getDirectionsResponse">
-    <wsdl:part name="parameters" element="ns1:getDirectionsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getDirectionsRequest">
-    <wsdl:part name="parameters" element="ns1:getDirections">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getLinesRequest">
-    <wsdl:part name="parameters" element="ns1:getLines">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionResponse">
-    <wsdl:part name="parameters" element="ns1:getMissionResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionRequest">
-    <wsdl:part name="parameters" element="ns1:getMission">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsFrequencyRequest">
-    <wsdl:part name="parameters" element="ns1:getMissionsFrequency">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getGeoPointsResponse">
-    <wsdl:part name="parameters" element="ns1:getGeoPointsResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsFirstLastRequest">
-    <wsdl:part name="parameters" element="ns1:getMissionsFirstLast">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getMissionsNextResponse">
-    <wsdl:part name="parameters" element="ns1:getMissionsNextResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getPerturbationsRequest">
-    <wsdl:part name="parameters" element="ns1:getPerturbations">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="getGeoPointsRequest">
-    <wsdl:part name="parameters" element="ns1:getGeoPoints">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:portType name="WsivPortType">
-    <wsdl:operation name="getMissionsFrequency">
-      <wsdl:input message="ns1:getMissionsFrequencyRequest" wsaw:Action="urn:getMissionsFrequency">
-    </wsdl:input>
-      <wsdl:output message="ns1:getMissionsFrequencyResponse" wsaw:Action="urn:getMissionsFrequencyResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsFirstLast">
-      <wsdl:input message="ns1:getMissionsFirstLastRequest" wsaw:Action="urn:getMissionsFirstLast">
-    </wsdl:input>
-      <wsdl:output message="ns1:getMissionsFirstLastResponse" wsaw:Action="urn:getMissionsFirstLastResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getVersion">
-      <wsdl:input message="ns1:getVersionRequest" wsaw:Action="urn:getVersion">
-    </wsdl:input>
-      <wsdl:output message="ns1:getVersionResponse" wsaw:Action="urn:getVersionResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getLines">
-      <wsdl:input message="ns1:getLinesRequest" wsaw:Action="urn:getLines">
-    </wsdl:input>
-      <wsdl:output message="ns1:getLinesResponse" wsaw:Action="urn:getLinesResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getStations">
-      <wsdl:input message="ns1:getStationsRequest" wsaw:Action="urn:getStations">
-    </wsdl:input>
-      <wsdl:output message="ns1:getStationsResponse" wsaw:Action="urn:getStationsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsNext">
-      <wsdl:input message="ns1:getMissionsNextRequest" wsaw:Action="urn:getMissionsNext">
-    </wsdl:input>
-      <wsdl:output message="ns1:getMissionsNextResponse" wsaw:Action="urn:getMissionsNextResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getDirections">
-      <wsdl:input message="ns1:getDirectionsRequest" wsaw:Action="urn:getDirections">
-    </wsdl:input>
-      <wsdl:output message="ns1:getDirectionsResponse" wsaw:Action="urn:getDirectionsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMission">
-      <wsdl:input message="ns1:getMissionRequest" wsaw:Action="urn:getMission">
-    </wsdl:input>
-      <wsdl:output message="ns1:getMissionResponse" wsaw:Action="urn:getMissionResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getPerturbations">
-      <wsdl:input message="ns1:getPerturbationsRequest" wsaw:Action="urn:getPerturbations">
-    </wsdl:input>
-      <wsdl:output message="ns1:getPerturbationsResponse" wsaw:Action="urn:getPerturbationsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getGeoPoints">
-      <wsdl:input message="ns1:getGeoPointsRequest" wsaw:Action="urn:getGeoPoints">
-    </wsdl:input>
-      <wsdl:output message="ns1:getGeoPointsResponse" wsaw:Action="urn:getGeoPointsResponse">
-    </wsdl:output>
-    </wsdl:operation>
-  </wsdl:portType>
-  <wsdl:binding name="WsivHttpBinding" type="ns1:WsivPortType">
-    <http:binding verb="POST"/>
-    <wsdl:operation name="getMissionsFrequency">
-      <http:operation location="Wsiv/getMissionsFrequency"/>
-      <wsdl:input>
-        <mime:content part="getMissionsFrequency" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getMissionsFrequency" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsFirstLast">
-      <http:operation location="Wsiv/getMissionsFirstLast"/>
-      <wsdl:input>
-        <mime:content part="getMissionsFirstLast" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getMissionsFirstLast" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getVersion">
-      <http:operation location="Wsiv/getVersion"/>
-      <wsdl:input>
-        <mime:content part="getVersion" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getVersion" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getLines">
-      <http:operation location="Wsiv/getLines"/>
-      <wsdl:input>
-        <mime:content part="getLines" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getLines" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getStations">
-      <http:operation location="Wsiv/getStations"/>
-      <wsdl:input>
-        <mime:content part="getStations" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getStations" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsNext">
-      <http:operation location="Wsiv/getMissionsNext"/>
-      <wsdl:input>
-        <mime:content part="getMissionsNext" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getMissionsNext" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getDirections">
-      <http:operation location="Wsiv/getDirections"/>
-      <wsdl:input>
-        <mime:content part="getDirections" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getDirections" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMission">
-      <http:operation location="Wsiv/getMission"/>
-      <wsdl:input>
-        <mime:content part="getMission" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getMission" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getPerturbations">
-      <http:operation location="Wsiv/getPerturbations"/>
-      <wsdl:input>
-        <mime:content part="getPerturbations" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getPerturbations" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getGeoPoints">
-      <http:operation location="Wsiv/getGeoPoints"/>
-      <wsdl:input>
-        <mime:content part="getGeoPoints" type="text/xml"/>
-      </wsdl:input>
-      <wsdl:output>
-        <mime:content part="getGeoPoints" type="text/xml"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="WsivSOAP11Binding" type="ns1:WsivPortType">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="getMissionsFrequency">
-      <soap:operation soapAction="urn:getMissionsFrequency" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsFirstLast">
-      <soap:operation soapAction="urn:getMissionsFirstLast" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getVersion">
-      <soap:operation soapAction="urn:getVersion" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getLines">
-      <soap:operation soapAction="urn:getLines" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getStations">
-      <soap:operation soapAction="urn:getStations" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsNext">
-      <soap:operation soapAction="urn:getMissionsNext" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getDirections">
-      <soap:operation soapAction="urn:getDirections" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMission">
-      <soap:operation soapAction="urn:getMission" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getPerturbations">
-      <soap:operation soapAction="urn:getPerturbations" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getGeoPoints">
-      <soap:operation soapAction="urn:getGeoPoints" style="document"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:binding name="WsivSOAP12Binding" type="ns1:WsivPortType">
-    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="getMissionsFrequency">
-      <soap12:operation soapAction="urn:getMissionsFrequency" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsFirstLast">
-      <soap12:operation soapAction="urn:getMissionsFirstLast" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getVersion">
-      <soap12:operation soapAction="urn:getVersion" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getLines">
-      <soap12:operation soapAction="urn:getLines" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getStations">
-      <soap12:operation soapAction="urn:getStations" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMissionsNext">
-      <soap12:operation soapAction="urn:getMissionsNext" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getDirections">
-      <soap12:operation soapAction="urn:getDirections" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getMission">
-      <soap12:operation soapAction="urn:getMission" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getPerturbations">
-      <soap12:operation soapAction="urn:getPerturbations" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getGeoPoints">
-      <soap12:operation soapAction="urn:getGeoPoints" style="document"/>
-      <wsdl:input>
-        <soap12:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
-  </wsdl:binding>
-  <wsdl:service name="Wsiv">
-    <wsdl:port name="WsivSOAP11port_http" binding="ns1:WsivSOAP11Binding">
-      <soap:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
-    </wsdl:port>
-    <wsdl:port name="WsivSOAP12port_http" binding="ns1:WsivSOAP12Binding">
-      <soap12:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
-    </wsdl:port>
-    <wsdl:port name="WsivHttpport" binding="ns1:WsivHttpBinding">
-      <http:address location="http://www13.ratp.fr/wsiv/services/Wsiv"/>
-    </wsdl:port>
-  </wsdl:service>
+    </wsdl:types>
+    <wsdl:message name="getMissionsFrequencyRequest">
+        <wsdl:part name="parameters" element="ns1:getMissionsFrequency"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionsFrequencyResponse">
+        <wsdl:part name="parameters" element="ns1:getMissionsFrequencyResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionsFirstLastRequest">
+        <wsdl:part name="parameters" element="ns1:getMissionsFirstLast"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionsFirstLastResponse">
+        <wsdl:part name="parameters" element="ns1:getMissionsFirstLastResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getVersionRequest"/>
+    <wsdl:message name="getVersionResponse">
+        <wsdl:part name="parameters" element="ns1:getVersionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getLinesRequest">
+        <wsdl:part name="parameters" element="ns1:getLines"/>
+    </wsdl:message>
+    <wsdl:message name="getLinesResponse">
+        <wsdl:part name="parameters" element="ns1:getLinesResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getStationsRequest">
+        <wsdl:part name="parameters" element="ns1:getStations"/>
+    </wsdl:message>
+    <wsdl:message name="getStationsResponse">
+        <wsdl:part name="parameters" element="ns1:getStationsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionsNextRequest">
+        <wsdl:part name="parameters" element="ns1:getMissionsNext"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionsNextResponse">
+        <wsdl:part name="parameters" element="ns1:getMissionsNextResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getDirectionsRequest">
+        <wsdl:part name="parameters" element="ns1:getDirections"/>
+    </wsdl:message>
+    <wsdl:message name="getDirectionsResponse">
+        <wsdl:part name="parameters" element="ns1:getDirectionsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionRequest">
+        <wsdl:part name="parameters" element="ns1:getMission"/>
+    </wsdl:message>
+    <wsdl:message name="getMissionResponse">
+        <wsdl:part name="parameters" element="ns1:getMissionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getPerturbationsRequest">
+        <wsdl:part name="parameters" element="ns1:getPerturbations"/>
+    </wsdl:message>
+    <wsdl:message name="getPerturbationsResponse">
+        <wsdl:part name="parameters" element="ns1:getPerturbationsResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getGeoPointsRequest">
+        <wsdl:part name="parameters" element="ns1:getGeoPoints"/>
+    </wsdl:message>
+    <wsdl:message name="getGeoPointsResponse">
+        <wsdl:part name="parameters" element="ns1:getGeoPointsResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="WsivPortType">
+        <wsdl:operation name="getMissionsFrequency">
+            <wsdl:input message="ns1:getMissionsFrequencyRequest" wsaw:Action="urn:getMissionsFrequency"/>
+            <wsdl:output message="ns1:getMissionsFrequencyResponse" wsaw:Action="urn:getMissionsFrequencyResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsFirstLast">
+            <wsdl:input message="ns1:getMissionsFirstLastRequest" wsaw:Action="urn:getMissionsFirstLast"/>
+            <wsdl:output message="ns1:getMissionsFirstLastResponse" wsaw:Action="urn:getMissionsFirstLastResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <wsdl:input message="ns1:getVersionRequest" wsaw:Action="urn:getVersion"/>
+            <wsdl:output message="ns1:getVersionResponse" wsaw:Action="urn:getVersionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getLines">
+            <wsdl:input message="ns1:getLinesRequest" wsaw:Action="urn:getLines"/>
+            <wsdl:output message="ns1:getLinesResponse" wsaw:Action="urn:getLinesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getStations">
+            <wsdl:input message="ns1:getStationsRequest" wsaw:Action="urn:getStations"/>
+            <wsdl:output message="ns1:getStationsResponse" wsaw:Action="urn:getStationsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsNext">
+            <wsdl:input message="ns1:getMissionsNextRequest" wsaw:Action="urn:getMissionsNext"/>
+            <wsdl:output message="ns1:getMissionsNextResponse" wsaw:Action="urn:getMissionsNextResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getDirections">
+            <wsdl:input message="ns1:getDirectionsRequest" wsaw:Action="urn:getDirections"/>
+            <wsdl:output message="ns1:getDirectionsResponse" wsaw:Action="urn:getDirectionsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMission">
+            <wsdl:input message="ns1:getMissionRequest" wsaw:Action="urn:getMission"/>
+            <wsdl:output message="ns1:getMissionResponse" wsaw:Action="urn:getMissionResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getPerturbations">
+            <wsdl:input message="ns1:getPerturbationsRequest" wsaw:Action="urn:getPerturbations"/>
+            <wsdl:output message="ns1:getPerturbationsResponse" wsaw:Action="urn:getPerturbationsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoPoints">
+            <wsdl:input message="ns1:getGeoPointsRequest" wsaw:Action="urn:getGeoPoints"/>
+            <wsdl:output message="ns1:getGeoPointsResponse" wsaw:Action="urn:getGeoPointsResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WsivSOAP11Binding" type="ns1:WsivPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getMissionsFrequency">
+            <soap:operation soapAction="urn:getMissionsFrequency" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsFirstLast">
+            <soap:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <soap:operation soapAction="urn:getVersion" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLines">
+            <soap:operation soapAction="urn:getLines" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStations">
+            <soap:operation soapAction="urn:getStations" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsNext">
+            <soap:operation soapAction="urn:getMissionsNext" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDirections">
+            <soap:operation soapAction="urn:getDirections" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMission">
+            <soap:operation soapAction="urn:getMission" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPerturbations">
+            <soap:operation soapAction="urn:getPerturbations" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoPoints">
+            <soap:operation soapAction="urn:getGeoPoints" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WsivSOAP12Binding" type="ns1:WsivPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="getMissionsFrequency">
+            <soap12:operation soapAction="urn:getMissionsFrequency" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsFirstLast">
+            <soap12:operation soapAction="urn:getMissionsFirstLast" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <soap12:operation soapAction="urn:getVersion" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLines">
+            <soap12:operation soapAction="urn:getLines" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStations">
+            <soap12:operation soapAction="urn:getStations" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsNext">
+            <soap12:operation soapAction="urn:getMissionsNext" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDirections">
+            <soap12:operation soapAction="urn:getDirections" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMission">
+            <soap12:operation soapAction="urn:getMission" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPerturbations">
+            <soap12:operation soapAction="urn:getPerturbations" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoPoints">
+            <soap12:operation soapAction="urn:getGeoPoints" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WsivHttpBinding" type="ns1:WsivPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="getMissionsFrequency">
+            <http:operation location="Wsiv/getMissionsFrequency"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getMissionsFrequency"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getMissionsFrequency"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsFirstLast">
+            <http:operation location="Wsiv/getMissionsFirstLast"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getMissionsFirstLast"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getMissionsFirstLast"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVersion">
+            <http:operation location="Wsiv/getVersion"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getVersion"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getVersion"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getLines">
+            <http:operation location="Wsiv/getLines"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getLines"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getLines"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getStations">
+            <http:operation location="Wsiv/getStations"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getStations"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getStations"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMissionsNext">
+            <http:operation location="Wsiv/getMissionsNext"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getMissionsNext"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getMissionsNext"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDirections">
+            <http:operation location="Wsiv/getDirections"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getDirections"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getDirections"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMission">
+            <http:operation location="Wsiv/getMission"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getMission"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getMission"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getPerturbations">
+            <http:operation location="Wsiv/getPerturbations"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getPerturbations"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getPerturbations"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGeoPoints">
+            <http:operation location="Wsiv/getGeoPoints"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getGeoPoints"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getGeoPoints"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Wsiv">
+        <wsdl:port name="WsivSOAP11port_http" binding="ns1:WsivSOAP11Binding">
+            <soap:address location="http://opendata-tr.ratp.fr/wsiv/services/Wsiv"/>
+        </wsdl:port>
+        <wsdl:port name="WsivSOAP12port_http" binding="ns1:WsivSOAP12Binding">
+            <soap12:address location="http://opendata-tr.ratp.fr/wsiv/services/Wsiv"/>
+        </wsdl:port>
+        <wsdl:port name="WsivHttpport" binding="ns1:WsivHttpBinding">
+            <http:address location="http://opendata-tr.ratp.fr/wsiv/services/Wsiv"/>
+        </wsdl:port>
+    </wsdl:service>
 </wsdl:definitions>

@@ -31,13 +31,11 @@ export class AppComponent {
     this.title = name
     this.ratp.getStationsInfo(name, type)
     .then((response) => {
-      console.log(response)
       this.stations = response.missions
       for (let i = 0 ; i < response.missions.length ; i++) {
         this.ratp.getMissionInfo(response.missions[i].id, type)
         .then((mission) => {
           let stationIsOnMyRoad = false;
-          console.log(mission.stations[i])
           for (let index = 0; index < mission.stationsStops.length ; index++) {
             if (!this.stations[i].stationsNotServe)
               this.stations[i].stationsNotServe = ""

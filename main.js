@@ -53,6 +53,8 @@ let win = null;
 //         app.quit();
 //     }
 // });
+appServer.use('/', express.static(path.join(__dirname, 'public')));
+
 appServer.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -72,48 +74,13 @@ appServer.use(function (req, res, next) {
     next();
 });
 
-appServer.get('/', function (req, res) {
-    res.status(200).json({"message":'Hello World!'});
-});
-
-
-// ####################
-// GET_STATIONS
-// ####################
-
-// appServer.get('/stations/:name/id/:id', function (req, res) {
-//
-//   var url = 'http://localhost:8888/wsiv.wsdl';
-//   var args = {
-//     "station": {
-//       "line": {
-//         "id": req.params.id
-//       },
-//       "name": req.params.name
-//     }
-//   };
-//
-//   soap.createClient(url, function(err, client) {
-//     if (err) {
-//       console.log(err)
-//     }
-//     client.getStations(args, function(err, result) {
-//       if (err) {
-//         console.log(err)
-//       }
-//       console.log(result);
-//         res.status(200).json(result);
-//     });
-//   });
-// });
-
 // ####################
 // GET_MISSIONS
 // ####################
 
 appServer.get('/stations/:name/type/:id', function (req, res) {
 
-    var url = 'http://localhost:8888/wsiv.wsdl';
+    var url = 'http://localhost:3000/wsiv.wsdl';
     var args = {
         "ns1:station": {
             "line": {
@@ -145,7 +112,7 @@ appServer.get('/stations/:name/type/:id', function (req, res) {
 
 appServer.get('/mission/:id/type/:type/notserved', function (req, res) {
 
-    var url = 'http://localhost:8888/wsiv.wsdl';
+    var url = 'http://localhost:3000/wsiv.wsdl';
     var args = {
         "ns1:mission": {
             "ns0:id": req.params.id,
